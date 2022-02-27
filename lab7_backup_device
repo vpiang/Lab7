@@ -1,0 +1,26 @@
+#Back up a Network Device
+
+import datetime, pathlib, os, netmiko
+
+from netmiko import ConnectHandler
+from getpass import getpass
+
+'''prompt user for username'''
+username = input("Enter username: ")
+print("Username is: " + username + "\n")
+
+'''prompt user for password
+password = getpass("Enter your password: ")
+print("Password is: " + password)'''
+
+'''getting current working directory'''
+cwd = os.getcwd()
+print("Current working directory: " + cwd)
+
+'''creating backup file'''
+backupFile = "csrBackup.txt"
+write = "w"
+
+backupFile = open('csrBackup.txt', 'w')
+
+routerIP = '10.10.10.10'
