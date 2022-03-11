@@ -23,6 +23,6 @@ try:
 except (AuthenticationException):
     print("An authentication error occured while connecting to: " + device['ip'])
 except (SSHException):
-    print("An error occured while connecting to device " + decie ['ip'] + " via ssh. Is SSH enable?")
+    print("An error occured while connecting to device " + device ['ip'] + " via ssh. Is SSH enable?")
 except (NetMikoTimeoutException):
-    print"The device " + device['ip'] + " timed out when attempting to connect")
+    print("The device " + device['ip'] + " timed out when attempting to connect")
