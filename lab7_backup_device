@@ -1,32 +1,20 @@
-# Back up a Network Device
-
-import datetime, pathlib, os, netmiko
-
 from netmiko import ConnectHandler
 from getpass import getpass
 
 '''prompt user for username'''
 user = input("Enter username: ")
-print("Username is: " + user + "\n")
 
 '''prompt user for password'''
 password = getpass("Enter your password: ")
-print("Password is: " + password)
 
-'''getting current working directory'''
-cwd = os.getcwd()
-print("Current working directory: " + cwd)
+device = {
+    'ip': '192.168.108.11'
+    'username': user,
+    'password': password,
+    'device_type': 'cisco_ios'
+}
 
-'''creating backup file'''
-backupFile = "csrBackup.txt"
-write = "w"
-
-backupFile = open('csrBackup.txt', 'w')
-
-routerIP = '10.10.10.10'
-
-dict = {"ip": "192.168.108.11", "username": "user", "password": "password", "device_type": "cisco_ios"}
-
-connection = ConnectHandler(**dict)
-
-output = connection.send_command("show run")
+connect = ConnectHandler(**device)
+    
+output = connect.send_command('show run')
+print(output)
